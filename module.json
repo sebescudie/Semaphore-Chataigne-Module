@@ -1,0 +1,43 @@
+{
+    "name":"Semaphore",
+    "type":"HTTP",
+    "path":"Software",
+    "version":"1.0.0",
+    "description":"An HTTP client for Semaphore, an Ansible front-end",
+    "url":"",
+    "downloadURL":"",
+    "hasInput":true,
+    "hasOutput":true,
+    "hideDefaultCommands":true,
+    "hideDefaultParameters":[
+    ],
+    "defaults":{
+        "baseAddress":"http://127.0.0.1:3000/api"
+    },
+    "parameters":{
+        "Token":{
+            "type":"String"
+        }
+    },
+    "values":{},
+    "scripts":[
+        "Semaphore.js"
+    ],
+    "commands":{
+        "Start Task":
+        {
+            "menu":"",  
+            "callback":"startTask",
+            "parameters":{
+                "Project Id":{
+                    "type":"Integer",
+                    "default":0
+                },
+                "Template Id":{
+                    "type":"Integer",
+                    "default":0
+                }
+            }
+        }
+    }
+}

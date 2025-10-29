@@ -24,16 +24,35 @@
         "Semaphore.js"
     ],
     "commands":{
-        "Start Task":
-        {
-            "menu":"",  
+        "Start":{
+            "menu":"Tasks",  
             "callback":"startTask",
+            "parameters":{
+                "Project Id":{
+                    "type":"Integer",
+                    "default":0,
+                    "description": "The Id of the project to send the request to"
+                },
+                "Template Id":{
+                    "type":"Integer",
+                    "default":0,
+                    "description": "The Id of the template to start"
+                },
+                "Limit":{
+                    "type":"String",
+                    "description": "The limit parameter passed to the playbook execution (--limit)"
+                }
+            }
+        },
+        "Get Output":{
+            "menu":"Tasks",  
+            "callback":"getTaskOutput",
             "parameters":{
                 "Project Id":{
                     "type":"Integer",
                     "default":0
                 },
-                "Template Id":{
+                "Task Id":{
                     "type":"Integer",
                     "default":0
                 }

@@ -10,13 +10,21 @@ function startTask(projectId, templateId, limit) {
     local.sendPOST("/project/" + projectId + "/tasks", params);
 }
 
-function getTaskOutput(projectId, taskId){
+function getTask(projectId, taskId){
     var params = {};
     params.extraHeaders = formatHeaders(local.parameters.getChild("token").get());
     
-    local.sendGET("project/" + projectId + "/tasks/" + taskId, params);
+    local.sendGET("/project/" + projectId + "/tasks/" + taskId, params);
 }
 
 function formatHeaders(token){
     return "Authorization: Bearer " + token + "\rContent-Type: application/json" + "\rAccept: application/json, text/plain, */*";
+}
+
+function dataEvent(data, requestURL){
+    var result = JSON.parse(data);
+    
+    local.values.getChild("taskStatus").getChild("id").set(result.id);
+    local.values.getChild("taskStatus").getChild("status").set(result.status);
+    local.values.getChild("taskStatus").getChild("template").set(result.template_id);
 }

@@ -19,7 +19,28 @@
             "type":"String"
         }
     },
-    "values":{},
+    "values":{
+        "Task status":{
+            "type":"Container",
+            "Id":{
+                "type":"Integer",
+                "readOnly":true
+            },
+            "Status":{
+                "type":"Enum",
+                "options":{
+                    "success":"success",
+                    "stopped":"stopped",
+                    "failed":"failed"
+                },
+                "readOnly":true
+            },
+            "Template":{
+                "type":"Integer",
+                "readOnly":true
+            }
+        }
+    },
     "scripts":[
         "Semaphore.js"
     ],
@@ -44,9 +65,9 @@
                 }
             }
         },
-        "Get Output":{
+        "Get":{
             "menu":"Tasks",  
-            "callback":"getTaskOutput",
+            "callback":"getTask",
             "parameters":{
                 "Project Id":{
                     "type":"Integer",

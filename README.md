@@ -11,3 +11,7 @@ This module allows you to
 
 ## Further reading
 - [Semaphore API reference](https://semaphoreui.com/api-docs/#/)
+
+## Credits
+
+Thanks to [DOWNTOWNSTUDIO](https://downtownstudio.ch/) for sponsoring the development of this module!
